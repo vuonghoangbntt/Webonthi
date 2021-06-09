@@ -1,0 +1,220 @@
+<!-- BEGIN: RES -->
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <link rel="icon" type="image/png" href="views/D.png" width="35px">
+    <title> ADMIN</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js" charset="utf-8"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="./../css/style.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            text-decoration: none;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            box-sizing: border-box;
+        }
+        
+        body {
+            min-height: 100vh;
+            background: #2f2f30;
+            box-shadow: 0 0 9px rgb(112, 112, 112);
+        }
+        
+        .log-form {
+            width: 850px;
+            background: #f1f1f1;
+            padding: 50px 40px 50px 40px;
+            border-radius: 10px;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            font-size: 20px;
+            transform: translate(-50%, -50%);
+        }
+        
+        .log-form input {
+            line-height: 25px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <form method="POST" class="log-form" style="background-color: rgb(255, 255, 255);">
+        <img src="views/res.gif" style="margin:0 0 20px 20px;">
+        <hr style="border: 1px solid rgb(172, 170, 170);" />
+        <br>
+        <div class="row">
+            <div class="col-md-6">
+                <span class="textmes">{mes_log}</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fas fa-user"></i></span>
+                    </div>
+                    <input id="usere" type="text" class="form-control" name="txtUsere" placeholder="Your UserName*" required>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                    </div>
+                    <input id="emaile" type="text" class="form-control" name="txtEmaile" placeholder="Your Email*" required>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6" style="margin-top: 10px;">
+                <span class="textmes" id="mes_use">{mes_regi_user}</span>
+            </div>
+            <div class="col-md-6" style="margin-top: 10px;">
+                <span class="textmes" id="mes_mail">{mes_regi_email}</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6" style="margin: 25px 0 25px 0;">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fas fa-lock"></i></span>
+                    </div>
+                    <input id="pwde" type="password" name="txtPwde" class="form-control" placeholder="Your Password*" required>
+                </div>
+            </div>
+            <div class="col-md-6" style="margin: 25px 0 25px 0;">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fas fa-lock"></i></span>
+                    </div>
+                    <input id="cpwd" type="password" name="txtCone" class="form-control" placeholder="Confirm Password*" required>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6" style="margin-top: 10px;">
+                <span class="textmes" id="mes_pwd">{mes_regi_pwd}</span>
+            </div>
+            <div class="col-md-6" style="margin-top: 10px;">
+                <span class="textmes" id="mes_con">{mes_regi_con}</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fas fa-phone"></i></span>
+                    </div>
+                    <input id="phonee" type="tel" name="nbrPhonee" class="form-control" placeholder="Phone Number*" required>
+                </div>
+            </div>
+            <div class="col-md-6"></div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6" style="margin-top: 10px;">
+                <span class="textmes" id="mes_phone">{mes_regi_phone}</span>
+            </div>
+            <div class="col-md-6" style="margin-top: 10px;"></div>
+        </div>
+        <br/>
+        <hr style="border: 1px solid rgb(172, 170, 170);" />
+        <button style="width: 300px;margin-left: 220px; font-size: 25px;" class="btn btn-success" id="Resgi">Registration</button>
+
+        <hr style="border: 1px solid rgb(172, 170, 170);" /><br/>
+
+    </form>
+
+    <script>
+        $(document).ready(function() {
+            $("#Resgi").click(function() {
+                let f = "YES";
+                let user = $("#usere");
+                let pwd = $("#pwde");
+                let conf = $("#cpwd");
+                let mail = $("#emaile");
+                let phone = $("#phonee");
+                if (!isString(user.val())) {
+                    f = "NO";
+                    user.addClass("mes");
+                    $("#mes_use").text("Please enter the correct User Name form");
+                    $("#mes_use").addClass("textmes");
+                }
+                if (!isEmail(mail.val())) {
+                    f = "NO";
+                    mail.addClass("mes");
+                    $("#mes_mail").text("Please enter the correct Email form");
+                    $("#mes_mail").addClass("textmes");
+                }
+                if (!isPwd(conf.val())) {
+                    f = "NO";
+                    conf.addClass("mes");
+                    $("#mes_con").text("Please enter the correct Confirm Password form");
+                    $("#mes_con").addClass("textmes");
+                }
+                if (pwd.val() != "" && conf.val() != "" && pwd.val() != conf.val()) {
+                    f = "NO";
+                    pwd.addClass("mes");
+                    $("#mes_con").text("Password confirmation does not match");
+                    $("#mes_con").addClass("textmes");
+                }
+                if ((phone.val()) == "") {
+                    f = "NO";
+                    phone.addClass("mes");
+                    $("#mes_phone").text("Please enter the correct Phone form");
+                    $("#mes_phone").addClass("textmes");
+                }
+                if (!isPwd(pwd.val())) {
+                    f = "NO";
+                    pwd.addClass("mes");
+                    $("#mes_pwd").text("Please enter the correct Password form");
+                    $("#mes_pwd").addClass("textmes");
+                }
+                if (f == "NO") {
+                    $('span[class="input-group-text"]').addClass('me_img');
+                }
+            });
+        });
+
+        function isString(v) {
+            let reg = /^[A-Z a-z]+$/;
+            return reg.test(v);
+        }
+
+        function isEmail(v) {
+            let reg = /^[A-Za-z0-9\.\-\_]+\@[a-z0-9A-Z\-\_]+\.[a-zA-Z]{2,5}(\.[a-zA-Z]{2,4})?$/;
+            return reg.test(v);
+        }
+
+        function isPhone(v) {
+            let reg = /^(09|03|07|08|05|02)+([0-9]{8})$/;
+            return reg.test(v);
+        }
+
+        function isPwd(v) {
+            let reg = /^[A-Za-z0-9]{8;14}$/;
+            return reg.test(v);
+        }
+    </script>
+</body>
+
+</html>
+
+<!-- END: RES -->

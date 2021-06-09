@@ -1,0 +1,123 @@
+<!-- BEGIN: READY -->
+<div class="container-fluid">
+    <div class="row">
+      <div class="col-md-8" style="border: 1px;">
+        <div class="row">
+          <div class= "col-md-4">
+            <img src='pdf_logo.jpg' class='rounded' style='width: 80%;height: 200px;'>
+          </div>
+          <div class= "col-md-8">
+            <h4>{title}</h4>
+            <p>By: {owner}</p>
+            <p>On: {date}</p>
+            <p>{description}</p>
+            <button type='button' class='btn btn-lg btn-success'><span class='fas fa-pen' style='margin-right: 5px;'></span><a href = "?a=do_test&id={test_id}" style='color: white;text-decoration: none;'>Bắt đầu</a></button>
+          </div>
+        </div>
+        <div class="container-fluid">
+          <h2>COMMENT</h2><hr>    
+          <div class="container">
+              <div class="row">
+                  <div class="col-md-1" style="margin-right: -10px;">
+                      <img src="img_avatar2.png" alt="John Doe" class=" rounded-circle" style="width:38px;">
+                  </div>
+                  <div class="col-md-11" style="margin-left: -40px;">
+                      <form method="POST" id="comment_form">
+                          <div class="input-group">
+                              <input placeholder="Your comment.." name="comment_content" id="comment_content" class="form-control" required>
+                              <input type="hidden" name="post_id" id="post_id" value="{post_id}" />
+                              <input type="hidden" name="test_id" id="test_id" value="{test_id}" />
+                              <div class="input-group-prepend">
+                                  <button type="submit" id="submit" name="submit" class="btn btn-secondary">Answer</button>
+                              </div>
+                          </div>
+                      </form>
+                  </div>
+                  <span id="comment_message"></span>
+              </div>
+          </div><br><br>  
+          <div class="container-fluid" id="display_comment"></div>
+      </div>
+      <div class="container replyRow" id="replyRow" style="display: none;">
+          <div class="row">
+              <div class="col-md-1" style="margin-right: -10px;">
+                  <img src="img_avatar2.png" alt="John Doe" class=" rounded-circle" style="width:38px;">
+              </div>
+              <div class="col-md-11" style="margin-left: -40px;">
+                  <form method="POST" id="reply_form">
+                      <div class="input-group">
+                          <input placeholder="Your reply.." name="comment_content" id="reply_content" class="form-control" required>
+                          <input type="hidden" name="comment_id" id="reply_id" value="0" />
+                          <input type="hidden" name="post_id" id="post_id_1" value="{post_id}" />
+                          <input type="hidden" name="test_id" id="test_id_1" value="{test_id}" />
+                          <div class="input-group-prepend">
+                              <button type="submit" id="reply_submit" name="submit" class="btn btn-secondary">Answer</button>
+                          </div>
+                      </div>
+                  </form>
+              </div>
+              <span id="comment_message"></span>
+          </div>
+      </div>  
+      </div>
+      <div class="col-md-4">
+        <h4>Bảng xếp hạng</h4>
+        <table class="table table-striped mb-0" style="text-align: center;">
+          <tr class="navbar-fixed-top">
+            <th>Họ và tên</th>
+            <th>Điểm</th>
+            <th>Thời gian</th>
+            <th>Số lượt</th>
+          </tr>
+          {tbl}
+        </table>
+      </div>
+    </div>
+</div>
+<script>
+            $(document).ready(function(){
+            $('#comment_form,#reply_form').on('submit',function(event){
+                event.preventDefault();
+                var form_data = $(this).serialize();
+                $.ajax({
+                    url:"controlers/add_comment.php",
+                    method: "POST",
+                    data: form_data,
+                    dataType:"JSON",
+                    success: function(data){
+                         if(data.error != '')
+                         {
+                             $('#comment_form')[0].reset();
+                             $('#reply_form')[0].reset();
+                             $('#comment_message').html(data.error);
+                             $('#comment_id').val('0');
+                             $('#replyRow').hide();
+                             load_comment();
+                         }   
+                    },
+                    error: function(ts) { alert(ts.responseText); }
+                })
+            });
+         load_comment();
+         function load_comment()
+         {
+             $.ajax({
+             url:"controlers/fetch_comment.php",
+             method:"POST",
+             data: {post_id: $("#post_id").val(), test_id: $("#test_id").val()},
+             success:function(data)
+             {
+                 $('#display_comment').html(data);
+             }
+             })
+         }
+          $(document).on('click', '.reply', function(){
+              var comment_id = $(this).attr("id");
+              $('#reply_id').val(comment_id);
+              $("#replyRow").insertAfter($(this));
+              $('#replyRow').show();
+          });
+         
+     });
+</script>
+<!-- END: READY -->

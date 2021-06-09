@@ -1,0 +1,46 @@
+<!-- BEGIN: MYPOST -->
+<div class="container-fluid">
+    <h3 class="text-center">MY POST</h3>
+    <input type="text" id="key" placeholder="Search" class="input-group" style="width: 800px;height: 40px;margin-left: 300px;" id="key"><br>
+    <ul class="list-group" id="myList" style="list-style-type: none;">
+        <!-- BEGIN: LS -->
+            <li>
+                <hr>
+                <div class="row">
+                    <div class="col-md-3">
+                        <img src= '{LS.pos_img}' class='rounded' style='width: 100%;height: 200px;'>
+                    </div>
+                    <div class="col-md-6">
+                        <h4>{LS.pos_title}</h4>
+                        <i class="fa fa-calendar"></i><span>: {LS.pos_status}</span><br>
+                        <i class="fa fa-eye"></i><span> {LS.pos_total_view}</span>
+                        <p>{LS.pos_short_content}</p>
+                        <a href="?a=view_post&id={LS.pos_id}" class="btn btn-danger">READ MORE</a>
+                    </div>
+                </div>
+            </li>
+        <!-- END: LS -->
+    </div>
+    <hr>
+</div>
+<script>
+    $(document).ready(function(){
+        $('#key').keyup(function(){
+                let value = $(this).val().toLowerCase();
+                let val = 0;
+                $('#myList li').filter(function(){
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value)>-1);
+                    if($(this).text().toLowerCase().indexOf(value)>-1){
+                        $(this).css("background-color: red;");
+                        val+=1;
+                    }
+                })
+                if(val==0){
+                    $('#message').text("Not Found!!!!!");
+                }else{
+                    $('#message').text("");
+                }
+            });
+    })
+</script>
+<!-- END: MYPOST -->

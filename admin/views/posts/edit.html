@@ -1,0 +1,71 @@
+<!-- BEGIN: EDIT -->
+<form method="POST" enctype="multipart/form-data">
+    <div class="row">
+        <div class="col-md-4">
+            <h5>Title</h5>
+        </div>
+        <div class="col-md-8">
+            <input type="text" class="form-control" name="txtPostName" id="PName" value="{EDIT.pos_title}" placeholder="Post's Title..." style="height: 35px;line-height: 30px;">
+            <span class="mess_error">{mess_title}</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4" style="margin: 20px 0 10px 0;">
+            <h5>Category</h5>
+        </div>
+        <div class="col-md-8" style="margin: 20px 0 10px 0;">
+            {listCat}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4" style="margin: 10px 0 10px 0;">
+            <h5>Short Content</h5>
+        </div>
+        <div class="col-md-8" style="margin: 10px 0 10px 0;">
+            <textarea class="form-control" name="txtPostShort" id="PShort" style="height: 150px;" placeholder="Your Short Content Here...">{EDIT.pos_short_content}</textarea>
+            <span class="mess_error">{mess_short}</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4" style="margin: 10px 0 20px 0;">
+            <h5>Content</h5>
+        </div>
+        <div class="col-md-8" style="margin: 10px 0 20px 0;">
+            <textarea class="form-control" name="txtPostContent" id="txtPostContent" placeholder="Your Content Here">{EDIT.pos_content}</textarea>
+            <span class="mess_error">{mess_content}</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <h5>Date Post</h5>
+        </div>
+        <div class="col-md-8">
+            <input type="date" value="{EDIT.pos_date}" class="form-control" name="txtPostDate" id="PDate" style="height: 35px;line-height: 30px;">
+            <span class="mess_error">{mess_date}</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4" style="margin: 20px 0 20px 0;">
+            <h5>Picture</h5>
+        </div>
+        <div class="col-md-8" style="margin: 20px 0 20px 0;">
+            <input type="file" name="file[]" data-toggle="tooltip" multiple title="Replace with new files" data-html="true" id="myTool">
+            <u><span style="color: blue;margin-right: 15px;">(Replace with new files)</span></u>
+            <a href="{EDIT.img}">
+                <img src="{EDIT.img}" class="img-thumbnail" style="width: 140px;height: 130px;box-shadow: 0 0 9px rgb(73, 73, 73);">
+            </a>
+        </div>
+    </div>
+    <div class="text-center">
+        <button class="btn btn-primary" style="width: 250px;height: 45px;background-color: cornflowerblue;">CHANGE POST</button>
+    </div>
+</form>
+<script>
+    // Replace the <textarea id="editor1"> with a CKEditor
+    // instance, using default configuration.
+    CKEDITOR.replace('txtPostContent');
+    $(document).ready(function() {
+        $("#myTool").tooltip();
+    });
+</script>
+<!-- END: EDIT -->

@@ -1,0 +1,219 @@
+<!-- BEGIN: LAYOUT -->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="icon" type="image/png" href="views/D.png" width="35px">
+    <title> ADMIN</title>
+
+    <!-- Bootstrap CSS CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <!-- Our Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.css" />
+    <link rel="stylesheet" href="./css/cards-gallery.css">
+
+    <!-- Font Awesome JS -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.11/css/lightgallery.css">
+    <script defer src="https://cdn.jsdelivr.net/picturefill/2.3.1/picturefill.min.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/jquery-mousewheel/3.1.13/jquery.mousewheel.min.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.11/js/lightgallery-all.min.js"></script>
+    <script src="js/jslibs.js"></script>
+    <link rel="stylesheet" type="text/css" href="./../css/style.css">
+    <script src="./js/ckeditor/ckeditor.js"></script>
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+    <link href="https://canvasjs.com/assets/css/jquery-ui.1.11.2.min.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="./css/lightgallery.css"> {BS}
+</head>
+
+<body>
+    <div class="wrapper">
+        <!-- Sidebar  -->
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <h3><img src="views/D.png" style="width:50px;margin-right: 15px;" />{usr_name}</h3>
+            </div>
+
+            <ul class="list-unstyled components">
+                <li>
+                    <a href="#home" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fas fa-home" style="margin-right: 15px;"></i> Home</a>
+                    <ul class="collapse list-unstyled" id="home">
+                        <li>
+                            <a href="?m=home&a=read"><i class="fas fa-home" style="margin-right: 15px;"></i>Home</a>
+                        </li>
+                        <li>
+                            <a href="?m=home&a=chart"><i class="fas fa-chart-bar" style="margin-right: 15px;"></i>Chart Blog Sport</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#homeSubevent" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fas fa-star" style="margin-right: 15px;"></i>Events</a>
+                    <ul class="collapse list-unstyled" id="homeSubevent">
+                        <li>
+                            <a href="?m=events&a=add"><i class="fas fa-upload" style="margin-right: 15px;"></i>Add event</a>
+                        </li>
+                        <li>
+                            <a href="?m=events&a=list"><i class="fas fa-newspaper" style="margin-right: 15px;"></i>List event</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#homeSubpost" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fas fa-folder-open" style="margin-right: 15px;"></i>Blog Sport</a>
+                    <ul class="collapse list-unstyled" id="homeSubpost">
+                        <li>
+                            <a href="?m=posts&a=add"><i class="fas fa-plus-square" style="margin-right: 15px;"></i>Add Post</a>
+                        </li>
+                        <li>
+                            <a href="?m=posts&a=list"><i class="fas fa-newspaper" style="margin-right: 15px;"></i>List Post</a>
+                        </li>
+                        <li>
+                            <a href="?m=posts&a=wait"><i class="fas fa-reply-all" style="margin-right: 15px;"></i>Blog Sport waiting for approval</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#homeSubuser" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fas fa-user-circle" style="margin-right: 15px;"></i>User</a>
+                    <ul class="collapse list-unstyled" id="homeSubuser">
+                        <li>
+                            <a href="?m=users&a=list"><i class="fas fa-edit" style="margin-right: 15px;"></i>List Account User</a>
+                        </li>
+                        <li>
+                            <a href="?m=users&a=listA"><i class="fas fa-newspaper" style="margin-right: 15px;"></i>List Account Admin</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#homeSubGa" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fas fa-images" style="margin-right: 15px;"></i>Gallery</a>
+                    <ul class="collapse list-unstyled" id="homeSubGa">
+                        <li>
+                            <a href="?m=gallery&a=list"><i class="fas fa-images" style="margin-right: 15px;"></i>List Gallery</a>
+                        </li>
+                        <li>
+                            <a href="?m=gallery&a=listg"><i class="fas fa-images" style="margin-right: 15px;"></i>Images of Home Page</a>
+                        </li>
+                        <li>
+                            <a href="?m=gallery&a=update"><i class="fas fa-upload" style="margin-right: 15px;"></i>Upload Images of Page Home</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#homeSubFe" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fas fa-paper-plane" style="margin-right: 15px;"></i>Feedback</a>
+                    <ul class="collapse list-unstyled" id="homeSubFe">
+                        <li>
+                            <a href="?m=feedback&a=list"><i class="fas fa-share-square" style="margin-right: 15px;"></i>Feedback Pending...</a>
+                        </li>
+                        <li>
+                            <a href="?m=feedback&a=listF"><i class="fas fa-reply-all" style="margin-right: 15px;"></i>Feedback Answered</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#homeSubCo" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fas fa-comments" style="margin-right: 15px;"></i>Comments</a>
+                    <ul class="collapse list-unstyled" id="homeSubCo">
+                        <li>
+                            <a href="?m=comments&a=copo"><i class="fas fa-share-square" style="margin-right: 15px;"></i>Blog Sport Comments</a>
+                        </li>
+                        <li>
+                            <a href="?m=comments&a=coev"><i class="fas fa-reply-all" style="margin-right: 15px;"></i>Event Comments</a>
+                        </li>
+                    </ul>
+                </li>
+                <!-- <li>
+                    <iframe width="250px" height="248px" src="https://www.youtube.com/embed/oimC5YjxGq8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </li> -->
+            </ul>
+
+
+        </nav>
+
+        <!-- Page Content  -->
+        <div id="content" style="background-color: rgb(206, 203, 203);">
+
+            <nav class="navbar navbar-expand-lg navbar-light bg-light rounded" style=" box-shadow: 0 0 9px #555;">
+                <div class="container-fluid">
+
+                    <button type="button" style="font-size: 20px;" id="sidebarCollapse" class="btn btn-info">
+                        <i class="fas fa-align-left"></i>
+                        <span>Menu</span>
+                    </button>
+                    <div class="float-left" style="margin-left: 100px;">
+                        <i><h2 style="font-family: Georgia, 'Times New Roman', Times, serif;color: rgb(36, 216, 60);">{title}</h2></i>
+                    </div>
+                    <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <i class="fas fa-align-justify"></i>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="nav navbar-nav ml-auto">
+                            <li class="nav-item">
+                                <!-- BEGIN: ICON -->
+                                <i class="fas fa-user-circle" style="font-size: 45px;"></i>
+                                <!-- END: ICON -->
+                                <!-- BEGIN: AVA -->
+                                <img src="{img}" style="height:54px;width:54px;border-radius: 50%;">
+                                <!-- END: AVA -->
+                            </li>
+                            <li class="nav-item" style="margin-right: 20px;">
+                                <a class="nav-link" href="?m=home&a=infor" style="font-size: 25px;">{usr_name}</a>
+                            </li>
+                            <li class="nav-item">
+                                <button class="btn-sm btn-warning"><a class="nav-link" style="font-size: 18px;" href="{baseUrl}/admin/logout.php">Log out</a></button>
+                            </li>
+                        </ul>
+                    </div>
+            </nav>
+            {acontent}
+            </div>
+        </div>
+
+        <!-- jQuery CDN - Slim version (=without AJAX) -->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <!-- Popper.JS -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+        <!-- Bootstrap JS -->
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+        <script type="text/javascript" src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
+        <script type="text/javascript" src="https://canvasjs.com/assets/script/jquery.canvasjs.min.js"></script>
+        <script src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
+        <script src="https://canvasjs.com/assets/script/jquery-ui.1.11.2.min.js"></script>
+        <script src="https://canvasjs.com/assets/script/jquery.canvasjs.min.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $('#sidebarCollapse').on('click', function() {
+                    $('#sidebar').toggleClass('active');
+                });
+                $("#{key}").keyup(function() {
+                    let v = $(this).val().toLowerCase();
+                    $("#{idtbl} tbody tr").filter(function() {
+                        $(this).toggle($(this).text().toLowerCase().indexOf(v) != -1);
+
+                    });
+
+                });
+            });
+        </script>
+        <!-- BEGIN: CK -->
+        {js}
+        <!-- END: CK -->
+        <!-- BEGIN: JS -->
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $("#{key1}").keyup(function() {
+                    let v = $(this).val().toLowerCase();
+                    $("#{idtbl1} tbody tr").filter(function() {
+                        $(this).toggle($(this).text().toLowerCase().indexOf(v) != -1);
+
+                    });
+                });
+            });
+        </script>
+        <!-- END: JS -->
+</body>
+
+</html>
+<!-- END: LAYOUT -->

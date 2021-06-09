@@ -1,0 +1,118 @@
+<!-- BEGIN: ADD -->
+<form method="POST">
+    <table class="table">
+        <tr>
+            <td>User name</td>
+            <td><input type="text" style="width: 300px;height: 30px;line-height: 27px;" class="rounded" name="txtUserName" value="{ADD.txtUserName}" required id="usere" placeholder="ZgH4JWs1*">
+                <span id="mes_use" class="textmes">{mess_user_name}</span>
+            </td>
+        </tr>
+        <tr>
+            <td>Email</td>
+            <td><input type="text" style="width: 300px;height: 30px;line-height: 27px;" class="rounded" name="txtUserEmail" id="emaile" required value="{ADD.txtUserEmail}" placeholder="example01@gmail.com*">
+                <span id="mes_mail" class="textmes">{mess_user_email}</span>
+            </td>
+        </tr>
+        <tr>
+            <td>Password</td>
+            <td><input type="password" style="width: 300px;height: 30px;line-height: 27px;" class="rounded" name="txtUserPass" required id="pwde">
+                <span id="mes_pwd" class="textmes">{mess_user_pwd}</span>
+            </td>
+        </tr>
+        <tr>
+            <td>Retype Password</td>
+            <td>
+                <input type="password" style="width: 300px;height: 30px;line-height: 27px;" class="rounded" name="txtUserRePass" id="cpwd" required>
+                <span id="mes_con"></span>
+            </td>
+        </tr>
+        <tr>
+            <td>Phone number</td>
+            <td><input type="tel" style="width: 300px;height: 30px;line-height: 27px;" class="rounded" name="txtUserPhone" id="phonee" required value="{ADD.txtUserPhone}" placeholder="+84">
+                <span id="mes_phone" class="textmes">{mess_user_phone}</span>
+            </td>
+        </tr>
+        <tr>
+            <td>Avatar</td>
+            <td>
+                <input type="file" name="txtProFile" required>
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><button class="btn btn-success" id="ad" style="width: 180px;">ADD USER</button></td>
+        </tr>
+    </table>
+</form>
+<script>
+    $(document).ready(function() {
+        $("#ad").click(function() {
+            let f = "YES";
+            let user = $("#usere");
+            let pwd = $("#pwde");
+            let conf = $("#cpwd");
+            let mail = $("#emaile");
+            let phone = $("#phonee");
+            if (!isStringNum(user.val())) {
+                f = "NO";
+                user.addClass("mes");
+                $("#mes_use").text("Please enter the correct User form");
+                $("#mes_use").addClass("textmes");
+            }
+            if (!isEmail(mail.val())) {
+                f = "NO";
+                mail.addClass("mes");
+                $("#mes_mail").text("Please enter the correct Email form");
+                $("#mes_mail").addClass("textmes");
+            }
+            if (!isPwd(conf.val())) {
+                f = "NO";
+                conf.addClass("mes");
+                $("#mes_con").text("Please enter the correct Confirm Password form");
+                $("#mes_con").addClass("textmes");
+            }
+            if (pwd.val() != "" && conf.val() != "" && pwd.val() != conf.val()) {
+                f = "NO";
+                pwd.addClass("mes");
+                $("#mes_con").text("Password confirmation does not match");
+                $("#mes_con").addClass("textmes");
+            }
+            if (!isPhone(phone.val())) {
+                f = "NO";
+                phone.addClass("mes");
+                $("#mes_phone").text("Please enter the correct Phone form");
+                $("#mes_phone").addClass("textmes");
+            }
+            if (!isPwd(pwd.val())) {
+                f = "NO";
+                pwd.addClass("mes");
+                $("#mes_pwd").text("Please enter the correct Password form");
+                $("#mes_pwd").addClass("textmes");
+            }
+            if (f == "YES") {
+                $("#ad").submit();
+            }
+        });
+    });
+
+    function isStringNum(v) {
+        let reg = /^[A-Za-z0-9]+$/;
+        return reg.test(v);
+    }
+
+    function isEmail(v) {
+        let reg = /^[A-Za-z0-9\.\-\_]+\@[a-z0-9A-Z\-\_]+\.[a-zA-Z]{2,5}(\.[a-zA-Z]{2,4})?$/;
+        return reg.test(v);
+    }
+
+    function isPhone(v) {
+        let reg = /^((09|03|07|08|05|02)+([0-9]{8})\b)$/;
+        return reg.test(v);
+    }
+
+    function isPwd(v) {
+        let reg = /^[A-Za-z0-9]{8;14}$/;
+        return reg.test(v);
+    }
+</script>
+<!-- END: ADD -->

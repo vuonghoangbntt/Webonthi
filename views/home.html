@@ -1,0 +1,142 @@
+<!-- BEGIN: HOME -->
+<div class="container-fluid">
+    <div id="slides" class="carousel slide" data-ride="carousel">
+
+        <!-- Indicators -->
+        <ul class="carousel-indicators">
+            <li data-target="#slides" data-slide-to="0" class="active"></li>
+            <li data-target="#slides" data-slide-to="1"></li>
+            <li data-target="#slides" data-slide-to="2"></li>
+            <li data-target="#slides" data-slide-to="3"></li>
+        </ul>
+
+        <!-- The slideshow -->
+        <div class="carousel-inner">
+            {carousel}
+        </div>
+
+        <!-- Left and right controls -->
+        <a class="carousel-control-prev" href="#slides" data-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </a>
+        <a class="carousel-control-next" href="#slides" data-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </a>
+
+    </div><br/>
+    <hr class="hr1">
+    <div class="category">
+      <h2 class = "text">Bạn muốn học gì hôm nay?</h2>
+    </div>
+    
+    <div class="gridSelection">
+      <div class= "container-fluid">
+        <div class= "container-fluid">
+          <h4>Gallery</h4>
+        
+          <div class= "row">
+             <div class ="col-12 col-sm-6 col-md-3 image">
+              <img src="./img/image/category1.jpg" class="imagelist" style="width: 100%">
+              <div class="middle">
+                <div class="text">Xem thêm</div>
+              </div>
+              <div class="centered">Chuyên đề lớp 10</div>
+             </div>
+             <div class ="col-12 col-sm-6 col-md-3 image">
+              <img src="./img/image/category1.jpg" style="width: 100%">
+              <div class="centered">Chuyên đề lớp 11</div>
+             </div>
+             <div class ="col-12 col-sm-6 col-md-3 image">
+              <img src="./img/image/category1.jpg" style="width: 100%">
+              <div class="centered">Chuyên đề lớp 12</div>
+             </div>
+             <div class ="col-12 col-sm-6 col-md-3 image">
+              <img src="./img/image/category1.jpg" style="width: 100%">
+              <div class="centered">Làm đề thi</div>
+             </div>
+             <div class ="col-12 col-sm-6 col-md-3 image">
+              <img src="./img/image/category1.jpg" style="width: 100%">
+              <div class="centered">Chuyên đề học sinh giỏi</div>
+             </div>
+             <div class ="col-12 col-sm-6 col-md-3 image">
+              <img src="./img/image/category1.jpg" style="width: 100%">
+              <div class="centered">Chuyên đề ôn thi đại học</div>
+             </div>
+             <div class ="col-12 col-sm-6 col-md-3 image">
+              <img src="./img/image/category1.jpg" style="width: 100%">
+              <div class="centered">Ebooks</div>
+             </div>
+             <div class ="col-12 col-sm-6 col-md-3 image">
+              <img src="./img/image/category1.jpg" style="width: 100%">
+              <div class="centered">Diễn đàn trao đổi</div>
+             </div>
+          </div>
+       </div>
+    </div>
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.js"></script>
+<script>
+	baguetteBox.run('.grid-gallery', { animation: 'slideIn'});
+</script>
+<br><br>
+<hr/>
+<div class="container-fluid" style="background-image: url('img/bgcontact.jfif'); background-repeat: no-repeat; background-size: cover;">
+    <div class="text-center">
+        <h1 style="font-family: 'Courier New', Courier, monospace;">FEEDBACK</h1>
+    </div>
+    <div class="mx-auto text-center" style="width: 800px;margin-bottom: 20px;">
+        <p style="color: white;">Haỹ gửi phản hồi và cảm nhận của bạn lại cho chúng tôi!!!</p>
+    </div>
+    <form method="POST" id="feedback">
+        <div class="clearfix mx-auto" style="margin-bottom:40px;">
+            <div class="float-left list-group w-25" style="padding-left: 40px;">
+                <input type="text" class="list-group-item" placeholder="YOUR NAME*" id="username" name="txtName" style="width: 270px;height: 40px;line-height: 30px;margin-bottom: 40px;" required>
+                <input type="text" class="list-group-item" placeholder="YOUR EMAIL*" id="email" name="txtEmail" style="width: 270px;height: 40px;line-height: 30px;margin-bottom: 40px;" required>
+                <input type="number" class="list-group-item" placeholder="YOUR PHONE*" id="phone" name="nbrPhone" style="width: 270px;height: 40px;line-height: 30px;" required>
+            </div>
+            <div class="float-right w-75">
+                <div class="float-left list-group" style="width: 640px;margin-left: 40px;">
+                    <textarea class="list-group-item" style="width: 620px;height: 142px;margin-bottom: 20px;" id="txtMessage" name="txtMessage" placeholder="YOUR MESSAGES*" required></textarea>
+                    <input type="submit" class="btn btn-danger list-group" style="width: 620px;text-align: center;" value="SEND MESSAGE">
+                </div>
+                <div class="float-left list-group " style="width: 220px;margin-top: -20px;margin-left: 40px;">
+                    <p>
+                        <h6 style="color: white;"><span class="fas fa-map-marker" style="width: 30px;"></span>1 Đại Cồ Việt, Hai Bà Trưng, Hà Nội</h6>
+                    </p>
+                    <p style="margin-top: -5px;">
+                        <h6 style="color: white;"><span class="fas fa-envelope" style="width: 30px;"></span>HUST@gmail.com</h6>
+                    </p>
+                    <p style="margin-top: -5px;">
+                        <h6 style="color: white;"><span class="fas fa-phone" style="width: 30px;"></span>099-999-9999</h6>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </form>
+    <script>
+        $(document).ready(function(){
+            $('#feedback').on('submit',function(event){
+                event.preventDefault();
+                var form_data = $(this).serialize();
+                $.ajax({
+                    url:"controlers/send_feedback.php",
+                    method: "POST",
+                    data: form_data,
+                    dataType: "JSON",
+                    success: function(data){
+                        if(data.error!=''){
+                            if(data.flag!=0){
+                                $('#feedback')[0].reset();
+                            }
+                            $('#feedback_mess').html(data.error);
+                        }
+                    },
+                    error: function(ts) { alert(ts.responseText) }
+                })
+            })
+        })
+    </script>
+</div>
+<div class="container-fluid" id="feedback_mess"></div>
+
+<!-- END: HOME-->

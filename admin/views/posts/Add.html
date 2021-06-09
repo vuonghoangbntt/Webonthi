@@ -1,0 +1,64 @@
+<!-- BEGIN: ADD -->
+<form method="POST" enctype="multipart/form-data">
+    <div class="row">
+        <div class="col-md-4">
+            <h5>Title</h5>
+        </div>
+        <div class="col-md-8">
+            <input type="text" class="form-control" name="txtPostName" id="PName" value="{ADD.txtEventName}" placeholder="Post's Title..." style="height: 35px;line-height: 30px;">
+            <span class="mess_error">{mess_title}</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4" style="margin: 20px 0 10px 0;">
+            <h5>Category</h5>
+        </div>
+        <div class="col-md-8" style="margin: 20px 0 10px 0;">
+            {listCat}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4" style="margin: 10px 0 10px 0;">
+            <h5>Short Content</h5>
+        </div>
+        <div class="col-md-8" style="margin: 10px 0 10px 0;">
+            <textarea class="form-control" name="txtPostShort" id="PShort" style="height: 150px;" placeholder="Your Short Content Here...">{ADD.txtShortContent}</textarea>
+            <span class="mess_error">{mess_short}</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4" style="margin: 10px 0 20px 0;">
+            <h5>Content</h5>
+        </div>
+        <div class="col-md-8" style="margin: 10px 0 20px 0;">
+            <textarea class="form-control" name="txtPostContent" id="txtPostContent" style="width: 500px;height: 200px;" placeholder="Your Content Here">{ADD.txtPostContent}</textarea>
+            <span class="mess_error">{mess_content}</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <h5>Date Post</h5>
+        </div>
+        <div class="col-md-8">
+            <input type="date" class="form-control" name="txtPostDate" id="PDate" style="height: 35px;line-height: 30px;">
+            <span class="mess_error">{mess_date}</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4" style="margin: 20px 0 20px 0;">
+            <h5>Picture</h5>
+        </div>
+        <div class="col-md-8" style="margin: 20px 0 20px 0;">
+            <input type="file" name="file[]" multiple id="PFile">
+        </div>
+    </div>
+    <div class="text-center">
+        <button class="btn btn-primary" style="width: 250px;height: 45px;background-color: cornflowerblue;">POST</button>
+    </div>
+</form>
+<script>
+    // Replace the <textarea id="editor1"> with a CKEditor
+    // instance, using default configuration.
+    CKEDITOR.replace('txtPostContent');
+</script>
+<!-- END: ADD -->

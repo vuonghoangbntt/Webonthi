@@ -1,0 +1,153 @@
+<!-- BEGIN: ALL -->
+<hr>
+<h2 class="text-center">FORUM</h2>
+<hr>
+<br><br>
+<div class="container">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6">
+                <button class="button" id="search"><span class="fa fa-search"></span></button><input hidden type="text" id="key" placeholder="Search"  style="width: 95%;height: 40px;" id="key">
+            </div>
+            <div class="col-md-6">
+                <h4>Sort by</h4>
+                <select>
+                    <option>Ngày cập nhật</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <br><br>
+    <ul id="myList" class="list-group" style="list-style-type:none;">
+        <!-- BEGIN: LS -->
+            <li>
+                <div class="row">
+                    <div class="col-md-4">
+                        <img src= '{LS.pos_img}' class='rounded' style='width: 80%;height: 200px;'>
+                    </div>
+                    <div class="col-md-6">
+                        <h4>{LS.pos_title}</h4>
+                        <i class="fa fa-comments"></i><span>{LS.total_comment}</span>
+                        <p>{LS.pos_content}</p>
+                        <a href="?a=view_post&id={LS.pos_id}" class="btn btn-danger">READ MORE</a>
+                    </div>
+                </div>
+            </li>
+            <hr>
+        <!-- END:  LS -->
+    </ul>
+</div>
+<br>
+    <hr>
+    <div class="container-fluid">
+        <h2>COMMENT</h2><hr>    
+        <div class="container">
+            <div class="row">
+                <div class="col-md-1" style="margin-right: -10px;">
+                    <img src="{user_image}" alt="John Doe" class=" rounded-circle" style="width:38px;">
+                </div>
+                <div class="col-md-11" style="margin-left: -40px;">
+                    <form method="POST" id="comment_form">
+                        <div class="input-group">
+                            <input placeholder="Your comment.." name="comment_content" id="comment_content" class="form-control" required>
+                            <input type="hidden" name="post_id" id="post_id" value="0" />
+                            <input type="hidden" name="test_id" id="test_id" value="0" />
+                            <div class="input-group-prepend">
+                                <button type="submit" id="submit" name="submit" class="btn btn-secondary">Answer</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <span id="comment_message"></span>
+            </div>
+        </div><br><br>  
+        <div class="container-fluid" id="display_comment"></div>
+    </div>
+    <div class="container replyRow" id="replyRow" style="display: none;">
+        <div class="row">
+            <div class="col-md-1" style="margin-right: -10px;">
+                <img src="{user_image}" alt="John Doe" class=" rounded-circle" style="width:38px;">
+            </div>
+            <div class="col-md-11" style="margin-left: -40px;">
+                <form method="POST" id="reply_form">
+                    <div class="input-group">
+                        <input placeholder="Your reply.." name="comment_content" id="reply_content" class="form-control" required>
+                        <input type="hidden" name="comment_id" id="reply_id" value="0" />
+                        <input type="hidden" name="post_id" id="post_id_1" value="0" />
+                        <input type="hidden" name="test_id" id="test_id_1" value="0" />
+                        <div class="input-group-prepend">
+                            <button type="submit" id="reply_submit" name="submit" class="btn btn-secondary">Answer</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <span id="comment_message"></span>
+        </div>
+    </div>
+    
+    <hr style="border: 1px solid rgb(146, 144, 144);" />
+    <script>
+       $(document).ready(function(){
+           $('#comment_form,#reply_form').on('submit',function(event){
+               event.preventDefault();
+               var form_data = $(this).serialize();
+               $.ajax({
+                   url:"controlers/add_comment.php",
+                   method: "POST",
+                   data: form_data,
+                   dataType:"JSON",
+                   success: function(data){
+                        if(data.error != '')
+                        {
+                            $('#comment_form')[0].reset();
+                            $('#reply_form')[0].reset();
+                            $('#comment_message').html(data.error);
+                            $('#comment_id').val('0');
+                            $('#replyRow').hide();
+                            load_comment();
+                        }   
+                   },
+                   error: function(ts) { alert(ts.responseText); }
+               })
+           });
+        load_comment();
+        function load_comment()
+        {
+            $.ajax({
+            url:"controlers/fetch_comment.php",
+            method:"POST",
+            data: {post_id: $("#post_id").val(), test_id: $("#test_id").val()},
+            success:function(data)
+            {
+                $('#display_comment').html(data);
+            }
+            })
+        }
+         $(document).on('click', '.reply', function(){
+             var comment_id = $(this).attr("id");
+             $('#reply_id').val(comment_id);
+             $("#replyRow").insertAfter($(this));
+             $('#replyRow').show();
+         });
+        
+    });
+    $(document).ready(function(){
+        $('#key').keyup(function(){
+                let value = $(this).val().toLowerCase();
+                let val = 0;
+                $('#myList li').filter(function(){
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value)>-1);
+                    if($(this).text().toLowerCase().indexOf(value)>-1){
+                        $(this).css("background-color: red;");
+                        val+=1;
+                    }
+                })
+                if(val==0){
+                    $('#message').text("Not Found!!!!!");
+                }else{
+                    $('#message').text("");
+                }
+            });
+    })
+</script>
+<!-- END: ALL -->

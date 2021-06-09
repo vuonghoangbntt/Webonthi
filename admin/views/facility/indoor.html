@@ -1,0 +1,66 @@
+<!-- BEGIN: LIST -->
+<h1 style="text-align: center;">List Indoor Sport</h1>
+<br>
+<div class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-5">
+        <form>
+            <div class="input-group">
+                <input id="Key" type="text" width="90%" class="form-control" name="txtKey" placeholder="Search">
+                <span class="input-group-text"><i class="fas fa-search"></i></span>
+            </div>
+        </form>
+    </div>
+    <div class="col-md-2"></div>
+    <div class="col-md-4"></div>
+</div>
+<hr>
+<table class="table text-center" id="listing">
+    <thead>
+        <tr>
+            <th scope="col">Nbr</th>
+            <th scope="col">User Name</th>
+            <th scope="col">Title</th>
+            <th scope="col">Category</th>
+            <th scope="col">Img</th>
+            <th scope="col">Short Content</th>
+            <th scope="col">Content</th>
+            <th scope="col">Total View</th>
+            <th scope="col">Like & Share</th>
+            <th scope="col">Date Post</th>
+            <th scope="col" colspan="2">Action</th>
+        </tr>
+    </thead>
+    <!-- BEGIN: LS -->
+    <tbody>
+        <tr>
+            <td style="width: 30px;">{LS.nbr}</td>
+            <td style="width: 100px;">{LS.ad_name}</td>
+            <td style="width: 70px;">{LS.pos_title}</td>
+            <td style="width: 50px;">{LS.cat_name}</td>
+            <td><img src="{LS.pos_img[0]}" style="width: 150px;"></td>
+            <td style="width: 300px;">{LS.pos_short_content}</td>
+            <td style="width: 500px;"><textarea style="width: 100px;height: 200px;">{LS.pos_content}</textarea></td>
+            <td style="width: 150px;">{LS.pos_total_view}</td>
+            <td style="width: 150px;">{LS.pos_like_and_share}</td>
+            <td style="width: 150px;">{LS.pos_date}</td>
+            <td><a href="?m=posts&a=edit&id={LS.pos_id}" class="btn btn-primary" style="margin-right: 10px;background-color: rgb(67, 126, 235);"><i class="fas fa-pencil" style="font-size: 25px;"></i></a></td>
+            <td><a class="btn btn-primary" style="background-color: rgb(240, 32, 25);" href="javascript:void(0)" onclick='onDelete("posts","delete","{LS.pos_id}")'><i class="fas fa-trash" style="font-size: 25px;"></i></a></td>
+        </tr>
+        <hr/>
+    </tbody>
+    <!-- END: LS -->
+</table>
+<hr>
+<script>
+    $(document).ready(function() {
+        $("#Key").keyup(function() {
+            let v = $(this).val().toLowerCase();
+            $("#listing tbody tr td").filter(function() {
+                $(this).toggle($(this).text().toLowerCase().indexOf(v) != -1);
+
+            });
+        });
+    });
+</script>
+<!-- END: LIST -->

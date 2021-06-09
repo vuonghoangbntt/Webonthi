@@ -1,0 +1,43 @@
+<!-- BEGIN: ADD -->
+<form method="POST" enctype="multipart/form-data">
+    <div style="background-color: rgb(209, 214, 221);width:1075px;height: 450px;border-radius: 10px 10px;" class="text-center">
+        <div class="row" style="margin-top: 0px;margin-right: -18px;">
+            <div class="col-md-11"></div>
+            <div class="col-md-1">
+                <a href="?m=gallery&a=list" style="font-size: 50px;"><i class="fas fa-times"></i></a>
+            </div>
+        </div>
+        <div class="row text-center">
+            <div class="col-md-3"></div>
+            <div class="col-md-6 input-group-prepend" style="margin-bottom: 20px;">
+                <span class="input-group-text" style="padding-right: 25px;">Gallery Name :</span>
+                <input class="form-control" name="txtGaName" placeholder="Name*" required/>
+            </div>
+            <div class="col-md-3"></div>
+        </div>
+        <div class="row text-center">
+            <div class="col-md-3"></div>
+            <div class="col-md-6 input-group-prepend">
+                <span class="input-group-text">Gallery Position :</span>
+                <input class="form-control" name="txtGaPo" placeholder="Position*" required/>
+            </div>
+            <div class="col-md-3"></div>
+        </div>
+        <div class="text-center">
+            <input type="file" id="fil" style="margin-top: 50px;font-size: 20px;" class="rounded-lg" name="file[]" multiple><br/>
+            <span style="color: red;">{erro}</span>
+        </div>
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-4 text-center">
+                <button class="btn btn-primary" name="add" style="width: 359px;;font-size: 20px;margin-top: 110px;background-color: rgb(11, 75, 192);border-radius: 10px 10px;">Upload Image</button>
+            </div>
+            <div class="col-md-4 text-center">
+                <a href="?m=gallery&a=list" class="btn btn-primary form-control" style="font-size: 20px;margin-top: 110px;background-color: rgb(247, 79, 49);border-radius: 10px 10px;">Cancel</a>
+            </div>
+            <div class="col-md-2"></div>
+        </div>
+    </div>
+</form>
+
+<!-- END: ADD -->

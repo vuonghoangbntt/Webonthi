@@ -1,0 +1,81 @@
+<!-- BEGIN: LIST -->
+<br>
+<div class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-5">
+        <form>
+            <div class="input-group">
+                <input id="Key" type="text" width="90%" class="form-control" name="txtKey" placeholder="Search">
+                <span class="input-group-text"><i class="fas fa-search"></i></span>
+            </div>
+        </form>
+    </div>
+    <div class="col-md-6"></div>
+</div>
+<table class="table text-center" id="listing">
+    <thead>
+        <tr>
+            <th scope="col">Nbr</th>
+            <!-- <th scope="col">User Admin Name</th> -->
+            <th scope="col" style="width:128px">User Name</th>
+            <th scope="col" style="width:280px">Title</th>
+            <th scope="col" style="width:200px">Category</th>
+            <!-- <th scope="col">Img</th> -->
+            <!-- <th scope="col">Short Content</th> -->
+            <th scope="col" style="width:122px">Total View</th>
+            <!-- <th scope="col">Like & Share</th> -->
+            <th scope="col">Date Post</th>
+            <!-- <th scope="col">Post Type</th> -->
+            <th scope="col" style="width:130px">Action</th>
+        </tr>
+    </thead>
+    <!-- BEGIN: LS -->
+    <tbody>
+        <tr>
+            <td>{LS.nbr}</td>
+            <!-- <td style="width: 60px;">{LS.ad_name}</td> -->
+            <td><span class="btn btn-link" style="font-size: 18px;">{LS.user_name}</span></td>
+            <td><a href="?m=posts&a=read&id={LS.pos_id}" class="btn btn-link" style="font-size: 18px;" title="Review about the title : {LS.pos_title}">{LS.pos_title}</a></td>
+            <td>{LS.pos_type}</td>
+            <!-- <td><img src="{LS.img}" style="width: 120px;height: 115px;"></td> -->
+            <!-- <td style="width: 300px;">{LS.pos_short_content}</td> -->
+            <td>{LS.pos_total_view}</td>
+            <!-- <td>{LS.pos_like_and_share}</td> -->
+            <td>{LS.pos_date}</td>
+            <!-- <td>{LS.pos_type}</td> -->
+            <td>
+                <a href="?m=posts&a=edit&id={LS.pos_id}" class="btn btn-primary rounded" style="background-color: rgb(67, 126, 235);margin-right: 15px;float: left;"><i class="fas fa-pencil-alt" style="font-size: 20px;"></i></a>
+                <a class="btn btn-primary rounded" style="background-color: rgb(240, 32, 25);float: right;" href="javascript:void(0)" onclick='onDelete("posts","delete","{LS.pos_id}")'><i class="fas fa-trash-alt" style="font-size: 20px;"></i></a>
+            </td>
+        </tr>
+        <hr/>
+    </tbody>
+    <!-- END: LS -->
+</table>
+<hr>
+<table style="margin:10px auto;">
+    <tr>
+        <td class="active border border-secondary btn">
+            <a href="?m=posts&a=list&page={pre_page}" style=" padding: 5px 10px 5px 10px;text-decoration: none;color:#000">Prev</a>
+        </td>
+        <!-- BEGIN: LOP1 -->
+        <td>
+            <span>{lii}</span>
+        </td>
+        <!-- END: LOP1 -->
+        <!-- BEGIN: PA -->
+        <td class=" border border-secondary btn" {bg}>
+            <a href="?m=posts&a=list&page={page}" style="padding: 5px 10px 5px 10px;text-decoration: none;color:rgb(0, 0, 0)">{i}</a>
+        </td>
+        <!-- END: PA -->
+        <!-- BEGIN: LOP -->
+        <td>
+            <span>{li}</span>
+        </td>
+        <!-- END: LOP -->
+        <td class="border border-secondary btn">
+            <a href="?m=posts&a=list&page={next_page}" style=" padding: 5px 10px 5px 10px;text-decoration: none;color:#000;">Next</a>
+        </td>
+    </tr>
+</table>
+<!-- END: LIST -->

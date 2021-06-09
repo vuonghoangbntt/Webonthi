@@ -1,0 +1,58 @@
+<!-- BEGIN: LIST -->
+<table class="table text-center">
+    <thead>
+        <tr>
+            <th scope="col" class="border border-top-light">Nbr</th>
+            <th scope="col" class="border border-top-light" style="width: 400px;">Title</th>
+            <!-- <th scope="col">Content</th> -->
+            <th scope="col" class="border border-top-light">Date Start</th>
+            <th scope="col" class="border border-top-light">Date End</th>
+            <th scope="col" class="border border-top-light">Number of Participants</th>
+            <th scope="col" class="border border-top-light" style="width:110px" colspan="2">Action</th>
+        </tr>
+    </thead>
+    <!-- BEGIN: LS -->
+    <tbody>
+        <tr>
+            <td class="border border-top-light">{LS.nbr}</td>
+            <td class="border border-top-light"><a href="?m=events&a=read&id={LS.even_id}" class="btn btn-link">{LS.even_title}</a></td>
+            <!-- <td><img src="{LS.even_img}" style="width: 200px;"></td> -->
+            <!-- <td style="width: 500px;"><textarea style="width: 100%;height: 200px;">{LS.even_content}</textarea></td> -->
+            <td class="border border-top-light">{LS.even_date_start}</td>
+            <td class="border border-top-light">{LS.even_date_end}</td>
+            <td class="border border-top-light" style="width: 220px;">{LS.even_join}</td>
+            <td class="border border-top-light">
+                <a href="?m=events&a=edit&id={LS.even_id}" class="btn btn-primary rounded" style="margin-right: 10px;background-color: rgb(67, 126, 235);float: left;"><i class="fas fa-pencil-alt" style="font-size: 20px;"></i></a>
+                <a class="btn btn-primary rounded" style="background-color: rgb(240, 32, 25);float: right;" href="javascript:void(0)" onclick='onDelete("events","delete","{LS.even_id}")'><i class="fas fa-trash-alt" style="font-size: 20px;"></i></a>
+            </td>
+        </tr>
+    </tbody>
+    <!-- END: LS -->
+</table>
+<hr>
+<table style="margin:10px auto;">
+    <tr>
+        <td class="active border border-secondary btn">
+            <a href="?m=events&a=list&page={pre_page}" style=" padding: 5px 10px 5px 10px;text-decoration: none;color:#000">Prev</a>
+        </td>
+        <!-- BEGIN: LOP1 -->
+        <td>
+            <span>{lii}</span>
+        </td>
+        <!-- END: LOP1 -->
+        <!-- BEGIN: PA -->
+        <td class=" border border-secondary btn" {bg}>
+            <a href="?m=events&a=list&page={page}" style="padding: 5px 10px 5px 10px;text-decoration: none;color:rgb(0, 0, 0)">{i}</a>
+        </td>
+        <!-- END: PA -->
+        <!-- BEGIN: LOP -->
+        <td>
+            <span>{li}</span>
+        </td>
+        <!-- END: LOP -->
+        <td class="border border-secondary btn">
+            <a href="?m=events&a=list&page={next_page}" style=" padding: 5px 10px 5px 10px;text-decoration: none;color:#000;">Next</a>
+        </td>
+    </tr>
+</table>
+<!-- END: LIST -->

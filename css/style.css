@@ -1,0 +1,372 @@
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.btnload {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    background-color: #fd2222;
+    color: white;
+    font-size: 16px;
+    padding: 16px 30px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.imgtext {
+    position: absolute;
+    top: 2.95%;
+    left: 10.5%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    background-color: rgb(11, 207, 11);
+    color: white;
+    /* border: none; */
+    cursor: pointer;
+    /* border-radius: 5px; */
+    text-align: center;
+}
+
+.textload {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    color: #ff1c1c;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.mes {
+    border: 1px solid red;
+}
+
+.textmes {
+    color: red;
+}
+
+.me_img {
+    background-color: red;
+}
+
+.box {
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 0 9px #555;
+}
+
+.box img {
+    width: 100%;
+    height: auto;
+}
+
+.box .box-heading {
+    width: 90%;
+    position: absolute;
+    bottom: 25px;
+    left: 5%;
+    background: rgba(23, 174, 224, 0.6);
+    padding: 10px 60px 10px 25px;
+    color: #fff;
+    transition: all 0.3s ease 0s;
+}
+
+.box:hover .box-heading {
+    left: 100%;
+}
+
+.box .box-heading:after {
+    content: ">";
+    font-family: fontawesome;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    position: absolute;
+    top: 13px;
+    right: 11px;
+    background: #20211c;
+    font-size: 30px;
+    color: #fff;
+    text-align: center;
+}
+
+.box .title {
+    margin: 0;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.box .post {
+    display: block;
+    font-size: 14px;
+    color: #fff;
+    text-transform: capitalize;
+    margin-top: 5px;
+}
+
+.box .boxContent {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: -100%;
+    padding: 30px 35px;
+    background: rgba(18, 174, 226, 0.8);
+    transition: all 0.3s ease 0s;
+}
+
+.box:hover .boxContent {
+    left: 0;
+}
+
+.box .description {
+    font-size: 14px;
+    color: #fff;
+    line-height: 25px;
+}
+
+.box .cart {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #20211c;
+    font-size: 14px;
+    font-weight: 700;
+    color: #fff;
+    margin-top: 20px;
+    transition: all 0.3s ease 0s;
+}
+
+.box .cart:hover {
+    text-decoration: none;
+    background: #fff;
+    color: #3fc9f7;
+}
+
+.box .cart i {
+    font-size: 20px;
+    font-weight: 700;
+    margin-left: 10px;
+}
+
+#map{
+    height: 400px;  /* The height is 400 pixels */
+    width: 100%; 
+}
+@media only screen and (max-width: 990px) {
+    .box {
+        margin-bottom: 20px;
+    }
+}
+
+@media only screen and (max-width: 479px) {
+    .box .boxContent {
+        padding: 10px;
+    }
+    .box .cart {
+        margin-top: 10px;
+    }
+}
+/* The grid: Four equal columns that floats next to each other */
+.column {
+    float: left;
+    width: 25%;
+    padding: 10px;
+  }
+  
+  /* Style the images inside the grid */
+  .column img {
+    opacity: 0.8;
+    cursor: pointer;
+  }
+  
+  .column img:hover {
+    opacity: 1;
+  }
+  
+  /* Clear floats after the columns */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  
+  /* Expanding image text */
+  #imgtext {
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+    color: white;
+    font-size: 20px;
+  }
+  
+  /* Closable button inside the image */
+  .closebtn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    color: white;
+    font-size: 35px;
+    cursor: pointer;
+  }
+  .gallery-block.grid-gallery{
+    padding-bottom: 60px;
+    padding-top: 60px;
+  }
+  
+  .gallery-block.grid-gallery .heading{
+      margin-bottom: 50px;
+      text-align: center;
+  }
+  
+  .gallery-block.grid-gallery .heading h2{
+      font-weight: bold;
+      font-size: 1.4rem;
+      text-transform: uppercase;
+  }
+  
+  .gallery-block.grid-gallery a:hover{
+    opacity: 0.8;
+  }
+  
+  .gallery-block.grid-gallery .item img{
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.15);
+    transition: 0.4s;
+  }
+  
+  .gallery-block.grid-gallery .item{
+    margin-bottom: 20px;
+  }
+  
+  @media (min-width: 576px) {
+  
+    .gallery-block.grid-gallery .scale-on-hover:hover{
+      transform: scale(1.05);
+      box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.15) !important;
+    }
+  }
+  .container-fluid.view img{
+      width: 100%;
+  }
+html, body {
+    width:100%;
+    height:100%;
+    font-family:Fira Sans;
+    font-size: 18px;
+    color: white;
+}
+
+.text {
+    font-size: 3vw; 
+}
+.navbar {
+    background-color:rgb(113, 35, 185)  !important;
+}
+
+.navbar li a {
+    color:white !important;
+}
+
+.navbar li a:hover {
+    color: rgb(248, 182, 182)  !important;
+}
+
+.dropdown-menu {
+    background-color: rgb(113, 35, 185) !important;
+}
+
+.carousel-inner img {
+    width: 100%;
+}
+
+.category {
+    font-size: 5vw;
+    color:rgb(113, 35, 185);
+    text-align: center;
+    padding-top: 20pt;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.column {
+    float: left;
+    width: 20%;
+    padding: 4px;
+}
+
+.row::after {
+    content: " ";
+    clear: both;
+    display: table;
+}
+.image {
+    margin-top: 30px;
+}
+.centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: rgb(230, 240, 211);
+    font-size: 30pt;
+    font-family: Bangers;
+    text-align:center;
+  }
+
+  .social a {
+	font-size: 3em;/*1em = 16px*/
+	padding: 3rem;/*1rem = 1 "font-size" */
+}
+.fa-facebook {
+	color: #3b5998;
+}
+.fa-twitter {
+	color: #00aced;	
+}
+.fa-google-plus-g {
+	color: #dd4b39;
+}
+.fa-instagram {
+	color: #517fa4;
+}
+.fa-youtube {
+	color: #bb0000;
+}
+footer {
+	background-color: #3f3f3f;
+	color: #d5d5d5;
+}
+hr.light {
+	border-top: 1px solid #d5d5d5;
+	width: 75%;
+}
+.middle {
+    transition: .5s ease;
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    text-align: center;
+  }
+  .imagelist {
+    opacity: 1;
+    display: block;
+    width: 100%;
+    height: auto;
+    transition: .5s ease;
+    backface-visibility: hidden;
+  }
+

@@ -1,0 +1,107 @@
+<!-- BEGIN: LIST -->
+<!-- BEGIN: LS -->
+<form method="POST">
+
+    <hr style="border:1px solid rgb(116, 114, 114)" />
+    <div class="container-fluid" style="margin-top:-10px;margin-bottom: -15px;">
+        <div class="row">
+            <div class="col-md-9">
+
+                <h5> Name : {LS.name} / Posiotn : {LS.position}<button name="del{LS.id}" class="btn btn-danger" style="margin-left: 15px;">Del</button></h5>
+
+            </div>
+            <div class="col-md-2 input-group-prepend">
+
+                <button name="d{LS.id}" class="btn btn-danger float-right" style="height: 35px;"><i class="fas fa-trash-alt"></i></button>
+
+                <input type="checkbox" name="cka{LS.id}" value="all" id="ckall{LS.id}" style="width:40px;height:35px;margin-left: -5px;" />
+            </div>
+            <div class="col-md-1">
+                <a href="?m=gallery&a=add&id={LS.id}" class="btn btn-success"><i class="fas fa-plus"></i></a>
+            </div>
+        </div>
+        <!-- The Modal -->
+        <div class="modal fade" role="dialog" id="myModalIn">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                        <button type="button" class="close btn btn-danger" data-dismiss="modal">&times;</button>
+                    </div>
+                    <!-- Modal body -->
+                    <div class="modal-body text-center">
+                        <form method="POST">
+                            <h5>Do you want delete this record?</h5><br/>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <button style="width: 180px;" class="btn btn-success rounded">Yes</button>
+                                </div>
+                                <div class="col-md-6">
+                                    <button style="width: 180px;" class="btn btn-primary rounded" data-dismiss="modal">No</button>
+                                </div>
+                            </div>
+                            <br/>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr style="border:1px solid rgb(116, 114, 114);margin-top: 0px;" />
+        <section class="gallery-block cards-gallery" style="margin-top:-70px">
+
+            <div class="demo-gallery">
+                <ul>
+                    <!-- BEGIN: LST -->
+                    <li style="width:179px;height:175px;">
+                        <div class="card border-0 transform-on-hover" class="float-left" style="width:176px;height:175px;">
+                            <input type="checkbox" value="{image}" name="ck{id}[]" style="width:25px;height:25px;float:right;" />
+                            <a href="{image}" style="box-shadow: 0 0 9px rgb(73, 73, 73);">
+
+                                <img src="{image}" class="img-responsive" style="box-shadow: 0 0 9px rgb(73, 73, 73);width:176px;height:150px;float: left;" />
+                            </a>
+                        </div>
+                    </li>
+                    <!-- END: LST -->
+                </ul>
+            </div>
+        </section>
+    </div>
+
+</form>
+<!-- END: LS -->
+<!-- BEGIN: CKJS -->
+<script>
+    $(document).ready(function() {
+        // $('#lightgallery').lightGallery({
+        //     pager: true
+        // });
+        $("#ckall{LS.id}").click(function() {
+            var ls = $("input[name='ck{LS.id}[]']");
+            if ($(this).is(':checked')) {
+
+                let i = 0;
+                // console.log(ls.length);
+                while (i < ls.length) {
+                    ls[i].checked = true;
+                    i++;
+                }
+            } else {
+                let i = 0;
+                while (i < ls.length) {
+                    ls[i].checked = false;
+                    i++;
+                }
+            }
+        });
+    });
+</script>
+<!-- END: CKJS -->
+<!-- BEGIN: BS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.js"></script>
+<script>
+    baguetteBox.run('.cards-gallery', {
+        animation: 'slideIn'
+    });
+</script>
+<!-- END: BS -->
+<!-- END: LIST -->

@@ -1,0 +1,69 @@
+<!-- BEGIN: WAIT -->
+<div class="row">
+    <div class="col-md-5">
+        <form>
+            <div class="input-group">
+                <input id="Key11" type="text" width="90%" class="form-control" name="txtKey" placeholder="Search">
+                <span class="input-group-text"><i class="fas fa-search"></i></span>
+            </div>
+        </form>
+    </div>
+    <div class="col-md-7"></div>
+</div>
+<table class="table text-center" id="listing11">
+    <thead>
+        <tr>
+            <th scope="col">Nbr</th>
+            <th scope="col">User Name</th>
+            <th scope="col">Title</th>
+            <th scope="col">Category</th>
+            <th scope="col">Date Post</th>
+            <th scope="col">Status</th>
+            <th scope="col">Action</th>
+        </tr>
+    </thead>
+    <!-- BEGIN: LS -->
+    <tbody>
+        <tr>
+            <td>{LS.nbr}</td>
+            <td><span class="btn btn-link" style="font-size: 18px;">{LS.user_name}</span></td>
+            <td><a href="?m=posts&a=read&id={LS.pos_id}" class="btn btn-link" style="font-size: 18px;" title="Review about the title : {LS.pos_title}">{LS.pos_title}</a></td>
+            <td>{LS.pos_type}</td>
+            <td>{LS.pos_date}</td>
+            <td>{LS.duration}</td>
+            <td>
+                <a href="?m=posts&a=editW&id={LS.pos_id}" class="btn btn-primary rounded" style="background-color: rgb(67, 126, 235);margin-right: 15px;"><i class="fas fa-check" style="font-size: 20px;"></i></a>
+                <a class="btn btn-primary rounded" style="background-color: rgb(240, 32, 25);" href="javascript:void(0)" onclick='onDelete("posts","delete","{LS.pos_id}")'><i class="fas fa-trash-alt" style="font-size: 20px;"></i></a>
+            </td>
+        </tr>
+        <hr/>
+    </tbody>
+    <!-- END: LS -->
+</table>
+<hr>
+<table style="margin:10px auto;">
+    <tr>
+        <td class="active border border-secondary btn">
+            <a href="?m=posts&a=wait&page={pre_page}" style=" padding: 5px 10px 5px 10px;text-decoration: none;color:#000">Prev</a>
+        </td>
+        <!-- BEGIN: LOP1 -->
+        <td>
+            <span>{lii}</span>
+        </td>
+        <!-- END: LOP1 -->
+        <!-- BEGIN: PA -->
+        <td class=" border border-secondary btn" {bg}>
+            <a href="?m=posts&a=wait&page={page}" style="padding: 5px 10px 5px 10px;text-decoration: none;color:rgb(0, 0, 0)">{i}</a>
+        </td>
+        <!-- END: PA -->
+        <!-- BEGIN: LOP -->
+        <td>
+            <span>{li}</span>
+        </td>
+        <!-- END: LOP -->
+        <td class="border border-secondary btn">
+            <a href="?m=posts&a=wait&page={next_page}" style=" padding: 5px 10px 5px 10px;text-decoration: none;color:#000;">Next</a>
+        </td>
+    </tr>
+</table>
+<!-- END: WAIT -->

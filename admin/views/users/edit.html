@@ -1,0 +1,35 @@
+<!-- BEGIN: EDIT -->
+<form method="POST">
+    <table class="table">
+        <tr>
+            <td>User name</td>
+            <td><input type="text" style="width: 300px;" name="txtUserName" value="{EDIT.user_name}" required id="txtUserName"><span>{mess_user_name}</span></td>
+        </tr>
+        <tr>
+            <td>Email</td>
+            <td><input type="text" style="width: 300px;" name="txtUserEmail" id="txtUserEmail" required value="{EDIT.user_email}"><span>{mess_user_email}</span></td>
+        </tr>
+        <tr>
+            <td>Password</td>
+            <td><input type="password" style="width: 300px;" name="txtUserPass" required id="txtUserPass"><span>{mess_user_pwd}</span></td>
+        </tr>
+        <tr>
+            <td>Retype Password</td>
+            <td><input type="password" style="width: 300px;" name="txtUserRePass" id="txtUserRePass" required></td>
+        </tr>
+        <tr>
+            <td>Phone number</td>
+            <td><input type="tel" style="width: 300px;" name="txtUserPhone" id="txtUserPhone" required value="{EDIT.user_phone}"><span>{mess_user_phone}</span></td>
+        </tr>
+        <tr>
+            <td>Avatar</td>
+            <td>
+                <input type="file" name="txtProFile" required>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2"><button class="btn btn-success">CHANGE USER</button></td>
+        </tr>
+    </table>
+</form>
+<!-- END: EDIT -->

@@ -1,0 +1,73 @@
+<!-- BEGIN: MANAGE -->
+<hr>
+<h2 class="text-center">Tài liệu đã đăng tải</h2>
+<hr>
+<div class="container-fluid" style="padding: 20px;">
+<!-- BEGIN: LIST-->
+<div class="row" style="margin-top: 20px;">
+<!-- BEGIN: LS -->
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-body">
+          <h4>{LS.test_title}</h4>
+          <hr>
+          <p>Đăng bởi: {LS.user_name}</p>
+          <p>Ngày đăng: {LS.test_date_post}</p>
+          <p>{LS.test_description}</p>
+          <p>Active: {LS.status}</p>
+          <a class="btn btn-primary rounded" style="background-color: rgb(240, 32, 25)" href="javascript:void(0)" onclick='onDelete("test","delete","{LS.test_id}")'><i class="fas fa-trash-alt" style="font-size: 20px;"></i></a>
+          <button type="button" class="btn btn-primary rounded" onclick="showModal1('{LS.test_id}','{LS.type_id}')" style="background-color: rgb(67, 126, 235);margin-right: 15px"><i class="fas fa-pencil-alt" style="font-size: 20px;"></i></a>
+        </div>
+      </div>
+    </div>
+<!-- END: LS-->
+</div>
+<!-- END: LIST-->
+</div>]
+<!-- Modal -->
+<div id="myModal1" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+  
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Edit</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+          <input type="text" hidden id="modal1" name="modal1">
+          <input type="text" hidden id="modal_type">
+          <button class="btn btn-info" id="info1">Edit test info</button>
+          <button class="btn btn-primary" id="answer1">Edit answer</button>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+</div>
+<script>
+  $('#info1').click(function(){
+    //confirm("Hello");
+    let id = $("#modal1").val();
+    window.location.href="?a=edit_test&id="+id;
+  });
+  $('#answer1').click(function(){
+    //confirm("Hello");
+    let id = $("#modal1").val(); 
+    let type = $("#modal_type").val();
+    alert(type);
+    if(type=='1'){
+      window.location.href="?a=edit_answer&id="+id;
+    }else{
+      window.location.href="?a=file_answer&id="+id;
+    }
+    
+  });
+  function showModal1(id, type){
+    $("#modal1").val(id);
+    $("#modal_type").val(type);
+    $("#myModal1").modal("show");
+  };
+</script>
+<!-- END: MANAGE -->

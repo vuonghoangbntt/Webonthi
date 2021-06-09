@@ -1,0 +1,95 @@
+<!-- BEGIN: LIST -->
+<div class="container-fluid text-center" style="background-color: rgb(129, 233, 247);border-radius: 10px 10px;">
+    <div class="row border">
+        <div class="col-md-1 border border-secondary">
+            <b>
+                <i>
+                    <h5>Nbr</h5>
+                </i>
+            </b>
+        </div>
+        <div class="col-md-3 border border-secondary">
+            <b>
+                <i>
+                    <h5>User Name</h5>
+                </i>
+            </b>
+        </div>
+        <div class="col-md-5 border border-secondary">
+            <b>
+                <i>
+                    <h5>Comment content</h5>
+                </i>
+            </b>
+        </div>
+        <div class="col-md-2 border border-secondary">
+            <b>
+                <i>
+                    <h5>Date</h5>
+                </i>
+            </b>
+        </div>
+        <div class="col-md-1 border border-secondary">
+            <b>
+                <i>
+                    <h5>Del</h5>
+                </i>
+            </b>
+        </div>
+    </div>
+    <!-- BEGIN: LS -->
+    <div class="row border border-secondary">
+        <div class="col-md-1 border border-secondary">
+            <span style="font-size: 16px;">{LS.nbr}</span>
+        </div>
+        <div class="col-md-3 border border-secondary">
+            <span style="font-size: 16px;">{LS.user_name}</span>
+        </div>
+        <div class="col-md-5 border border-secondary">
+            <span style="font-size: 16px;">{LS.comment_content}</span>
+        </div>
+        <div class="col-md-2 border border-secondary">
+            <span style="font-size: 16px;">{LS.comment_date_post}</span>
+        </div>
+        <div class="col-md-1 border border-secondary">
+            <a class="btn btn-primary rounded" style="background-color: rgb(240, 32, 25);" href="javascript:void(0)" onclick='onDelete("comments","delete","{LS.comment_id}")'><i class="fas fa-trash-alt" style="font-size: 18px;"></i></a>
+        </div>
+    </div>
+    <!-- END: LS -->
+</div>
+<hr/>
+<table style="margin:10px auto;" id="cop">
+    <tr>
+        <td class="active border border-secondary btn">
+            <a href="?m=comments&a=copo&page={pre_page}" style=" padding: 5px 10px 5px 10px;text-decoration: none;color:#000">Prev</a>
+        </td>
+        <!-- BEGIN: LOP1 -->
+        <td>
+            <span>{lii}</span>
+        </td>
+        <!-- END: LOP1 -->
+        <!-- BEGIN: PA -->
+        <td class=" border border-secondary btn" {bg}>
+            <a href="?m=comments&a=copo&page={page}" style="padding: 5px 10px 5px 10px;text-decoration: none;color:rgb(0, 0, 0)">{i}</a>
+        </td>
+        <!-- END: PA -->
+        <!-- BEGIN: LOP -->
+        <td>
+            <span>{li}</span>
+        </td>
+        <!-- END: LOP -->
+        <td class="border border-secondary btn">
+            <a href="?m=comments&a=copo&page={next_page}" style=" padding: 5px 10px 5px 10px;text-decoration: none;color:#000;">Next</a>
+        </td>
+    </tr>
+</table>
+<!-- END: LIST-->
+<!-- BEGIN: SCI -->
+<!-- <script>
+    $(document).ready(function() {
+        $("#cop td a").click(function() {
+            $(this).attr("style", "background-color:rgb(25, 124, 238)");
+        });
+    });
+</script> -->
+<!-- END: SCI -->

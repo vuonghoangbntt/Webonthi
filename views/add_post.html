@@ -1,0 +1,69 @@
+<!-- BEGIN: NEW -->
+{mess_error}
+<div class="container-fluid"> 
+    <div class="row" >
+        <div class="col-md-8" style="border: 1px solid black;border-radius: 10px;">
+            <h3 class="text-center">NEW POST</h3><br>
+            <form method="POST" enctype="multipart/form-data" id='myForm'>
+                <div class="row">
+                    <div class="col-md-4 text-center">
+                        <h5>Category</h5>
+                    </div>
+                    <div class="col-md-8 text-center">
+                        {lsCategory}<br>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4 text-center">
+                        <h5>Title</h5>
+                    </div>
+                    <div class="col-md-8">
+                        <input type="text" class="form-control" name="txtPostName" id="PostName" value="" placeholder="Post's Title..." style="width: 500px;height: 35px;line-height: 30px;" required>
+                    </div>
+                </div><br>
+                <div class="row">
+                    <div class="col-md-4 text-center">
+                        <h5>Content</h5>
+                    </div>
+                    <div class="col-md-8">
+                        <textarea class="form-control" name="txtContent" id="Content" value="" required placeholder="Your short content" style="width: 500px;height: 150px;"></textarea>
+                    </div>
+                </div><br>
+                <div class="row">
+                    <div class="col-md-4 text-center">
+                        <h5>Top Picture</h5>
+                    </div>
+                    <div class="col-md-8">
+                        <input type="file" name="file[]" multiple id="PFile">
+                    </div>
+                </div><br>
+                <div class="text-center">
+                    <button class="btn btn-primary" name="Submit" id="btnSubmit" style="width: 250px;height: 45px;background-color: cornflowerblue;">POST</button>
+                </div>
+                <div class="container-fluid" id="errorMess"></div>
+            </form>
+            <br><br>
+            <script>
+                CKEDITOR.replace( 'ShortContent' );
+                CKEDITOR.replace( 'Content' );
+            </script>
+        </div>
+        <div class="col-md-4">
+            <table class="table table-striped mb-0" style="width: fit-content;font-family: 'Courier New', Courier, monospace;">
+            <tr class="navbar-fixed-top">
+                <th>Đăng bài trên diễn đàn</th>
+            </tr>
+            <tr>
+                <td>1. Hãy tôn trọng mọi người</td>
+            </tr>
+            <tr>
+                <td>2. Hãy lịch sự</td>
+            </tr>
+            <tr>
+                <td>3. Đọc kĩ nội quy trước khi post bài</td>
+            </tr>
+            </table>
+        </div>
+    </div>
+</div>
+<!-- END: NEW -->

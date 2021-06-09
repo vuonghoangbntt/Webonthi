@@ -1,0 +1,26 @@
+<!-- BEGIN: RESULT -->
+<div class="container-fluid">
+    <div class="row">
+      <div class="col-md-8 bg-success"  style="border: 1px solid black;border-radius: 10px;">
+        <h4>{title}</h4>
+        <p>Chúc mừng bạn đã hoàn thành đề thi</p>
+        <p>Điểm của bạn là: {lastest}</p>
+        <p>Điểm số cao nhất: {highest}</p>
+        <button class="btn btn-primary"><span class='fas fa-book' style='margin-right: 5px;'></span>Lịch sử làm bài</button>
+        <button class="btn btn-primary"><span class='fas fa-pen' style='margin-right: 5px;'></span><a style="text-decoration: none;color: white;" href="?a=list_file">Đề tiếp theo</a></button>
+      </div>
+      <div class="col-md-4">
+        <h4>Bảng xếp hạng</h4>
+        <table class="table table-striped mb-0" style="text-align: center;">
+          <tr class="navbar-fixed-top">
+            <th>Họ và tên</th>
+            <th>Điểm</th>
+            <th>Thời gian</th>
+            <th>Số lượt</th>
+          </tr>
+          {tbl}
+        </table>
+      </div>
+    </div>
+  </div>
+<!-- END: RESULT -->

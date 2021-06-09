@@ -1,0 +1,64 @@
+<!-- BEGIN: INF -->
+<table class="table">
+    <tr>
+        <td>User name</td>
+        <td>
+            <h5><i>{INF.ad_name}</i></h5>
+        </td>
+    </tr>
+    <tr>
+        <td>Email</td>
+        <td>
+            <h5><i>{INF.ad_email}</i></h5>
+        </td>
+    </tr>
+    <tr>
+        <td>Phone number</td>
+        <td>
+            <h5><i>{INF.ad_phone}</i></h5>
+        </td>
+    </tr>
+    <tr>
+        <td>Avatar</td>
+        <td>
+            <!-- BEGIN: AVA -->
+            <a href="{ava}">
+                <img src="{ava}" style="width: 55px;height: 55px;border-radius: 50%;float: left;margin-right: 20px;">
+            </a>
+            <!-- END: AVA -->
+            <!-- BEGIN: ICO -->
+            <i class="fas fa-user-circle float-left" style="font-size: 45px;"></i>
+            <!-- END: ICO -->
+            <a data-toggle="modal" data-target="#myModal" data-toggle="modal" class="btn btn-primary float-left" href="#" style="margin-top: 10px;">Change Avatar</a>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2"><a href="?m=home&a=pwd" class="btn btn-primary">Change Password</a></td>
+    </tr>
+</table>
+<div class="modal fade" role="dialog" id="myModal">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <button type="button" class="close btn btn-danger" data-dismiss="modal">&times;</button>
+            </div>
+            <!-- Modal body -->
+            <div class="modal-body">
+                <form method="POST" enctype="multipart/form-data">
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <input type="file" name="txtProFile">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 text-center" style="margin-top: 30px;">
+                            <button class="btn btn-success" name="Change" style="width: 180px;">Change</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- END: INF -->

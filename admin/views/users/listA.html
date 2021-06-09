@@ -1,0 +1,71 @@
+<!-- BEGIN: LISTA -->
+<div class="row">
+    <div class="col-md-6"></div>
+    <div class="col-md-5">
+        <form>
+            <div class="input-group">
+                <input id="Key2" type="text" width="90%" class="form-control" name="txtKey" placeholder="Search">
+                <span class="input-group-text"><i class="fas fa-search"></i></span>
+            </div>
+        </form>
+    </div>
+    <div class="col-md-1">
+        <!-- BEGIN: ADA -->
+        <a href="?m=users&a=addA" class="btn btn-success rounded"><i class="fas fa-plus"></i></a>
+        <!-- END: ADA -->
+    </div>
+</div>
+<hr>
+<table class="table text-center" id="list">
+    <thead>
+        <tr>
+            <th scope="col">Nbr</th>
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Phone</th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <!-- BEGIN: LST -->
+    <tbody>
+        <tr>
+            <td style="width: 50px;">{LST.nbr}</td>
+            <td style="width: 100px;">{LST.ad_name}</td>
+            <td>{LST.ad_email}</td>
+            <td>{LST.ad_phone}</td>
+            <td>
+                <!-- BEGIN: DEA -->
+                <a class="btn btn-primary rounded" style="background-color: rgb(240, 32, 25);" href="javascript:void(0)" onclick='onDelete("users","deleteA","{LS.ad_id}")'><i class="fas fa-trash-alt"></i></a>
+                <!-- END: DEA -->
+            </td>
+        </tr>
+    </tbody>
+    <!-- END: LST -->
+</table>
+<hr>
+<table style="margin:10px auto;">
+    <tr>
+        <td class="active border border-secondary btn">
+            <a href="?m=users&a=listA&page={pre_page}" style=" padding: 5px 10px 5px 10px;text-decoration: none;color:#000">Prev</a>
+        </td>
+        <!-- BEGIN: LOP1 -->
+        <td>
+            <span>{lii}</span>
+        </td>
+        <!-- END: LOP1 -->
+        <!-- BEGIN: PA -->
+        <td class=" border border-secondary btn" {bg}>
+            <a href="?m=users&a=listA&page={page}" style="padding: 5px 10px 5px 10px;text-decoration: none;color:rgb(0, 0, 0)">{i}</a>
+        </td>
+        <!-- END: PA -->
+        <!-- BEGIN: LOP -->
+        <td>
+            <span>{li}</span>
+        </td>
+        <!-- END: LOP -->
+        <td class="border border-secondary btn">
+            <a href="?m=users&a=listA&page={next_page}" style=" padding: 5px 10px 5px 10px;text-decoration: none;color:#000;">Next</a>
+        </td>
+    </tr>
+</table>
+<!-- END: LISTA -->

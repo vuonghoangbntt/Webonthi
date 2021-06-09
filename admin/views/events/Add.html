@@ -1,0 +1,65 @@
+<!-- BEGIN: ADD -->
+<form method="POST" enctype="multipart/form-data">
+    <div class="row">
+        <div class="col-md-4">
+            <h5>Title</h5>
+        </div>
+        <div class="col-md-8">
+            <input type="text" class="form-control" name="txtEventName" id="EName" placeholder="Post's Title..." style="height: 35px;line-height: 30px;">
+            <span class="mess_error">{mess_title}</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4" style="margin: 20px 0 10px 0;">
+            <h5>Short Content</h5>
+        </div>
+        <div class="col-md-8" style="margin: 20px 0 10px 0;">
+            <textarea class="form-control" name="txtEventShort" id="EShort" style="height: 150px;" placeholder="Your Short Content Here..."></textarea>
+            <span class="mess_error">{mess_short}</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4" style="margin:10px 0 10px 0;">
+            <h5>Content</h5>
+        </div>
+        <div class="col-md-8" style="margin:10px 0 10px 0;">
+            <textarea class="form-control" style="width: 500px;height: 200px;" placeholder="Your Content Here" name="txtEventContent" id="EContent"></textarea>
+            <span class="mess_error">{mess_content}</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4" style="margin:10px 0 10px 0;">
+            <h5>Date Start</h5>
+        </div>
+        <div class="col-md-8" style="margin:10px 0 10px 0;">
+            <input type="date" class="form-control" name="txtEventDateStart" id="EDateStart" placeholder="">
+            <span class="mess_error">{mess_date_start}</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4" style="margin:10px 0 0px 0;">
+            <h5>Date End</h5>
+        </div>
+        <div class="col-md-8" style="margin:10px 0 0px 0;">
+            <input type="date" class="form-control" name="txtEventDateEnd" id="EDateEnd" placeholder="">
+            <span cl ass="mess_error">{mess_date_end}</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4" style="margin: 20px 0 20px 0;">
+            <h5>Picture</h5>
+        </div>
+        <div class="col-md-8" style="margin: 20px 0 20px 0;">
+            <input type="file" name="efile[]" multiple id="EFile">
+        </div>
+    </div>
+    <div class="text-center">
+        <button class="btn btn-primary rounded" style="width: 250px;font-size: 25px;background-color: cornflowerblue;">POST</button>
+    </div>
+</form>
+<script>
+    // Replace the <textarea id="editor1"> with a CKEditor
+    // instance, using default configuration.
+    CKEDITOR.replace('txtEventContent');
+</script>
+<!-- END: ADD -->

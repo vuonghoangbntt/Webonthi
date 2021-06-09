@@ -1,0 +1,37 @@
+<!-- BEGIN: ANS -->
+<div style="background-color: rgb(161, 253, 161);padding: 25px 0 25px 0;">
+    <div class="row">
+        <div class="col-md-12" style="margin: 15px 0 5px 15px;">
+            <h4 style="color: rgb(85, 82, 82);font-family:Georgia, 'Times New Roman', Times, serif">FROM : {ANS.fb_user_email} / Name : {ANS.fb_user_name}</h4>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-9"></div>
+        <div class="col-md-2">
+            <i><b>
+                <span class="float-right" style="color: rgb(117, 117, 117);">{ANS.fb_date}</span>
+            </b></i>
+        </div>
+        <div class="col-md-1"></div>
+    </div>
+    <hr style="border: 1px solid rgb(48, 48, 48);" />
+    <div>
+        <p style="color: rgb(0, 0, 0);margin-left: 20px;">{ANS.fb_content}</p>
+    </div>
+    <br/>
+    <hr/>
+    <h5><i>Answer :</i></h5>
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-10">
+            <form method="POST">
+                <input class="form-control rounded-lg" name="txtSub" style="margin-bottom: 20px;" placeholder="Email Subject...">
+                <span style="color: red;">{er}</span>
+                <textarea class="form-control" name="txtMes" style="height: 250px;margin-bottom: 20px;" placeholder="Messages..."></textarea>
+                <span style="color: red;">{err}</span>
+                <button class="btn btn-warning rounded-lg text-center" style="width:250px;font-size: 20px;">Send Message</button>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- END: ANS -->

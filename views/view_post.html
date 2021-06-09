@@ -1,0 +1,149 @@
+<!-- BEGIN: VIEW -->
+<hr>
+<h2 class="text-center">FORUM</h2>
+<hr>
+<div class="container" style="font-size: 20px;border: 1px solid black;border-radius: 10px;padding: 20px;">
+    <!-- BEGIN: LS -->
+    <div class="container-fluid">
+        <h2><b>{LS.pos_title}</b></h2>
+        <div class="row">
+            <div class="col-md-1">
+                <img src="{LS.user_avatar}" class="rounded-circle" style="width: 100%;">
+            </div>
+            <div class="col-md-10">
+                <p><span style="color: #F5F5F5">BY </span>{LS.user_name}</p>
+                <p style="color: #F5F5F5">{LS.pos_date}</p>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid view">{LS.pos_content}</div>
+    <hr>
+    <h2>RELATED PICTURE</h2>
+    <div class="row">
+        <!-- BEGIN: IMG -->
+        <div class="column">
+            <img src="{IMG.image}" onclick="myFunction(this);" style="height: 100px;">
+        </div>
+        <!-- END: IMG -->
+    </div>
+    <!-- The expanding image container -->
+    <div class="container text-center" style="position: relative;display: none; margin-top: 10px;">
+        <!-- Close the image -->
+        <span onclick="this.parentElement.style.display='none'" class="close">&times;</span>
+    
+        <!-- Expanded image -->
+        <img id="expandedImg" style="width:500px; height: 400px;" class="rounded">
+    
+        <!-- Image text -->
+        <div id="imgtext"></div>
+    </div>
+    <hr>
+    <!-- END: LS -->
+    <div class="container-fluid" style="margin-top: 50px;">
+        <h2>COMMENT</h2><hr>    
+        <div class="container">
+            <div class="row">
+                <div class="col-md-1" style="margin-right: -10px;">
+                    <img src="{user_image}" alt="John Doe" class=" rounded-circle" style="width:38px;">
+                </div>
+                <div class="col-md-11" style="margin-left: -40px;">
+                    <form method="POST" id="comment_form">
+                        <div class="input-group">
+                            <input placeholder="Your comment.." name="comment_content" id="comment_content" class="form-control" required>
+                            <input type="hidden" name="post_id" id="post_id" value="{post_id}" />
+                              <input type="hidden" name="test_id" id="test_id" value="{test_id}" />
+                            <div class="input-group-prepend">
+                                <button type="submit" id="submit" name="submit" class="btn btn-secondary">Answer</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <span id="comment_message"></span>
+            </div>
+        </div><br><br>  
+        <div class="container-fluid" id="display_comment"></div>
+    </div>
+    <div class="container replyRow" id="replyRow" style="display: none;">
+        <div class="row">
+            <div class="col-md-1" style="margin-right: -10px;">
+                <img src="{user_image}" alt="John Doe" class=" rounded-circle" style="width:38px;">
+            </div>
+            <div class="col-md-11" style="margin-left: -40px;">
+                <form method="POST" id="reply_form">
+                    <div class="input-group">
+                        <input placeholder="Your reply.." name="comment_content" id="reply_content" class="form-control" required>
+                        <input type="hidden" name="post_id" id="post_id_1" value="{post_id}" />
+                        <input type="hidden" name="test_id" id="test_id_1" value="{test_id}" />
+                        <input type="hidden" name="comment_id" id="reply_id" value="0" />
+                        <div class="input-group-prepend">
+                            <button type="submit" id="reply_submit" name="submit" class="btn btn-secondary">Answer</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <span id="comment_message"></span>
+        </div>
+        <br><br><br>
+    </div>
+    <script>
+        $(document).ready(function(){
+            $('#comment_form,#reply_form').on('submit',function(event){
+                event.preventDefault();
+                var form_data = $(this).serialize();
+                $.ajax({
+                    url:"controlers/add_comment.php",
+                    method: "POST",
+                    data: form_data,
+                    dataType:"JSON",
+                    success: function(data){
+                         if(data.error != '')
+                         {
+                             $('#comment_form')[0].reset();
+                             $('#reply_form')[0].reset();
+                             $('#comment_message').html(data.error);
+                             $('#comment_id').val('0');
+                             $('#replyRow').hide();
+                             load_comment();
+                         }   
+                    },
+                    error: function(ts) { alert(ts.responseText); }
+                })
+            });
+         load_comment();
+
+         function load_comment()
+         {
+             $.ajax({
+             url:"controlers/fetch_comment.php",
+             method:"POST",
+             data: {post_id: $("#post_id").val(), test_id: $("#test_id").val()},
+             success:function(data)
+             {
+                 $('#display_comment').html(data);
+             }
+             })
+         }
+          $(document).on('click', '.reply', function(){
+              var comment_id = $(this).attr("id");
+              $('#reply_id').val(comment_id);
+              $("#replyRow").insertAfter($(this));
+              $('#replyRow').show();
+          });
+         
+     });
+        function myFunction(imgs) {
+        // Get the expanded image
+        var expandImg = document.getElementById("expandedImg");
+        // Get the image text
+        var imgText = document.getElementById("imgtext");
+        // Use the same src in the expanded image as the image being clicked on from the grid
+        expandImg.src = imgs.src;
+        // Use the value of the alt attribute of the clickable image as text inside the expanded image
+        imgText.innerHTML = imgs.alt;
+        // Show the container element (hidden with CSS)
+        expandImg.parentElement.style.display = "block";
+        }
+     </script>
+</div>
+
+<!-- END: VIEW -->
